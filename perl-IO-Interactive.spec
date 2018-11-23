@@ -4,7 +4,7 @@
 #
 Name     : perl-IO-Interactive
 Version  : 1.022
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.022.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.022.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libi/libio-interactive-perl/libio-interactive-perl_1.022-1.debian.tar.xz
@@ -83,7 +83,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/IO/Interactive.pm
+/usr/lib/perl5/vendor_perl/5.28.0/IO/Interactive.pm
 
 %files dev
 %defattr(-,root,root,-)
