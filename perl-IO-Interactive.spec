@@ -4,11 +4,11 @@
 #
 Name     : perl-IO-Interactive
 Version  : 1.022
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.022.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.022.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libi/libio-interactive-perl/libio-interactive-perl_1.022-1.debian.tar.xz
-Summary  : 'Utilities for interactive I/O'
+Summary  : Utilities for interactive I/O
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl Artistic-2.0 GPL-1.0
 Requires: perl-IO-Interactive-license = %{version}-%{release}
@@ -26,6 +26,7 @@ for any Perl module.
 Summary: dev components for the perl-IO-Interactive package.
 Group: Development
 Provides: perl-IO-Interactive-devel = %{version}-%{release}
+Requires: perl-IO-Interactive = %{version}-%{release}
 
 %description dev
 dev components for the perl-IO-Interactive package.
@@ -44,7 +45,7 @@ license components for the perl-IO-Interactive package.
 cd ..
 %setup -q -T -D -n IO-Interactive-1.022 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/IO-Interactive-1.022/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/IO-Interactive-1.022/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
