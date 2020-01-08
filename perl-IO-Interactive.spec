@@ -4,14 +4,15 @@
 #
 Name     : perl-IO-Interactive
 Version  : 1.022
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.022.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.022.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libi/libio-interactive-perl/libio-interactive-perl_1.022-1.debian.tar.xz
-Summary  : Utilities for interactive I/O
+Summary  : 'Utilities for interactive I/O'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl Artistic-2.0 GPL-1.0
 Requires: perl-IO-Interactive-license = %{version}-%{release}
+Requires: perl-IO-Interactive-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -40,18 +41,28 @@ Group: Default
 license components for the perl-IO-Interactive package.
 
 
+%package perl
+Summary: perl components for the perl-IO-Interactive package.
+Group: Default
+Requires: perl-IO-Interactive = %{version}-%{release}
+
+%description perl
+perl components for the perl-IO-Interactive package.
+
+
 %prep
 %setup -q -n IO-Interactive-1.022
-cd ..
-%setup -q -T -D -n IO-Interactive-1.022 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libio-interactive-perl_1.022-1.debian.tar.xz
+cd %{_builddir}/IO-Interactive-1.022
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/IO-Interactive-1.022/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/IO-Interactive-1.022/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -61,7 +72,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -70,8 +81,8 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-IO-Interactive
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-IO-Interactive/LICENSE
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-IO-Interactive/deblicense_copyright
+cp %{_builddir}/IO-Interactive-1.022/LICENSE %{buildroot}/usr/share/package-licenses/perl-IO-Interactive/5196def79b81230e8d1bd28ea9b2ed74007204a5
+cp %{_builddir}/IO-Interactive-1.022/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-IO-Interactive/f5fec709320453cad16e931f7d09ac370d93f429
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -84,7 +95,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/IO/Interactive.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -92,5 +102,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-IO-Interactive/LICENSE
-/usr/share/package-licenses/perl-IO-Interactive/deblicense_copyright
+/usr/share/package-licenses/perl-IO-Interactive/5196def79b81230e8d1bd28ea9b2ed74007204a5
+/usr/share/package-licenses/perl-IO-Interactive/f5fec709320453cad16e931f7d09ac370d93f429
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/IO/Interactive.pm
