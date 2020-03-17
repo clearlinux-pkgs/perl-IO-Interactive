@@ -4,7 +4,7 @@
 #
 Name     : perl-IO-Interactive
 Version  : 1.022
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.022.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.022.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libi/libio-interactive-perl/libio-interactive-perl_1.022-1.debian.tar.xz
@@ -82,7 +82,7 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-IO-Interactive
 cp %{_builddir}/IO-Interactive-1.022/LICENSE %{buildroot}/usr/share/package-licenses/perl-IO-Interactive/5196def79b81230e8d1bd28ea9b2ed74007204a5
-cp %{_builddir}/IO-Interactive-1.022/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-IO-Interactive/f5fec709320453cad16e931f7d09ac370d93f429
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-IO-Interactive/f5fec709320453cad16e931f7d09ac370d93f429
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -107,4 +107,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/IO/Interactive.pm
+/usr/lib/perl5/vendor_perl/5.30.2/IO/Interactive.pm
