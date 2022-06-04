@@ -4,7 +4,7 @@
 #
 Name     : perl-IO-Interactive
 Version  : 1.023
-Release  : 24
+Release  : 25
 URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.023.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.023.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libi/libio-interactive-perl/libio-interactive-perl_1.022-1.debian.tar.xz
@@ -104,4 +104,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/IO/Interactive.pm
+/usr/lib/perl5/*
