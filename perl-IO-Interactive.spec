@@ -6,10 +6,10 @@
 # autospec commit: 94c6be0
 #
 Name     : perl-IO-Interactive
-Version  : 1.025
-Release  : 33
-URL      : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.025.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/B/BD/BDFOY/IO-Interactive-1.025.tar.gz
+Version  : 1.026
+Release  : 34
+URL      : https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/IO-Interactive-1.026.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/IO-Interactive-1.026.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libi/libio-interactive-perl/libio-interactive-perl_1.022-1.debian.tar.xz
 Summary  : 'Utilities for interactive I/O'
 Group    : Development/Tools
@@ -54,14 +54,14 @@ perl components for the perl-IO-Interactive package.
 
 
 %prep
-%setup -q -n IO-Interactive-1.025
+%setup -q -n IO-Interactive-1.026
 cd %{_builddir}
 tar xf %{_sourcedir}/libio-interactive-perl_1.022-1.debian.tar.xz
-cd %{_builddir}/IO-Interactive-1.025
+cd %{_builddir}/IO-Interactive-1.026
 mkdir -p deblicense/
-cp -r %{_builddir}/debian/* %{_builddir}/IO-Interactive-1.025/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/IO-Interactive-1.026/deblicense/
 pushd ..
-cp -a IO-Interactive-1.025 buildavx2
+cp -a IO-Interactive-1.026 buildavx2
 popd
 
 %build
