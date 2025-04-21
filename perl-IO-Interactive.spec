@@ -7,7 +7,7 @@
 #
 Name     : perl-IO-Interactive
 Version  : 1.027
-Release  : 35
+Release  : 36
 URL      : https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/IO-Interactive-1.027.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/IO-Interactive-1.027.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libi/libio-interactive-perl/libio-interactive-perl_1.022-1.debian.tar.xz
